@@ -1,0 +1,18 @@
+version: "2"
+services:
+  easyappointments-data:
+    image: mariadb:latest
+    environment:
+      MYSQL_DATABASE: easyappointments
+      MYSQL_ROOT_PASSWORD: Ch4nG3Mee%!
+
+  easyappointments:
+    image: xgione/easyappointments:latest
+    environment:
+      DB_NAME: easyappointments
+      DB_PASSWORD: Ch4nG3Mee%!
+      BASE_URL: http://localhost:8888
+    ports:
+      - 8888:8888
+    links:
+      - easyappointments-data:db
